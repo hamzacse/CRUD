@@ -5,13 +5,13 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy requirements first (better for caching)
-COPY ../requirements.txt .
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the code
-COPY . .
+# Copy the app code
+COPY app/ .
 
 # Expose port FastAPI will run on
 EXPOSE 8000
